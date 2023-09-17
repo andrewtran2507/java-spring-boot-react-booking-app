@@ -1,0 +1,21 @@
+# All Available Queries
+type Query {
+  # user
+  # allUsers: [Users]
+  userById(id: String!): Users
+  signIn(email: String!, password: String!): Users
+  # totalUsers: Int
+
+  # slot
+  allSlots: [Slots]
+	slotById(id: String!): [Slots]
+	totalSlots: Int
+  getSlotByUserIdAndCurrentDate(userId: String!, currentDate: String!): [Slots]
+  getSlotByCurrentDate(currentDate: String!): [Slots]
+
+  #booking
+  allBookings: [Bookings]
+	bookingById(id: String!): [Bookings]
+	totalBookings: Int
+  getBookingByUserIdAndCurrentDate(userId: String!, currentDate: String!): [Bookings]
+}

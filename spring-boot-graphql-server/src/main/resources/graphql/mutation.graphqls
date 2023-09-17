@@ -1,0 +1,13 @@
+type Mutation {
+  # user
+  createUser(name: String, email: String!, password: String!, type: Int!): Users!
+	updateUser(id: String!, name: String, email: String!, password: String!, type: Int!): Users!
+
+  # slot
+  createSlot(input: SlotInput!): Slots!
+	updateSlot(id: String!, input: SlotInput!): Slots!
+
+  # booking
+  createBooking(input: BookingInput!): Bookings!
+	updateBooking(id: String!, input: BookingInput!): Bookings!
+}

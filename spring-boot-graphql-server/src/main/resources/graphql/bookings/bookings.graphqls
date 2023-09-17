@@ -1,0 +1,38 @@
+
+# Bookings
+# ->id - UUID
+# - day_of_week
+# - start_time
+# - end_time
+# - date
+# - user_id
+# - slot_id
+# - time_zone
+# - is_active
+# - status
+
+
+type Bookings {
+	id: String!
+	day_of_week: String
+  start_time: String!
+	end_time: String!
+	date: String!
+	user_id: String!
+	slot_id: String!
+	time_zone: Int!
+	is_active: Boolean
+	status: Boolean
+}
+
+input BookingInput {
+	day_of_week: String
+  start_time: String!
+	end_time: String!
+	date: String!
+	user_id: String!
+	slot_id: String!
+	time_zone: Int!
+	is_active: Boolean
+	status: Boolean
+}

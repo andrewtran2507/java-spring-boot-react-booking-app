@@ -1,0 +1,35 @@
+# ->id - UUID
+# - day_of_week
+# - start_time
+# - end_time
+# - from_date
+# - end_date
+# - user_id
+# - time_zone
+# - step
+# - status
+
+type Slots {
+	id: String!
+	day_of_week: String!
+  start_time: String!
+	end_time: String!
+	from_date: String!
+	end_date: String!
+	user_id: String!
+	time_zone: Int!
+	step: Int!
+	status: Boolean
+}
+
+input SlotInput {
+	day_of_week: String!
+  start_time: String!
+	end_time: String!
+	from_date: String!
+	end_date: String!
+	user_id: String!
+	time_zone: Int!
+	step: Int!
+	status: Boolean
+}

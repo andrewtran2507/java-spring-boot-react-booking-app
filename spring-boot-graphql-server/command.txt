@@ -1,0 +1,217 @@
+ ./gradlew bootRun --args='--spring.profiles.active=dev'
+
+-----
+User
+-----
+query allUsers {
+  allUsers {
+    id,
+    name, 
+    email,
+    password,
+    type
+  }
+}
+
+query userById {
+  userById(id: "237e9877-e79b-12d4-a765-321741963000") {
+    id,
+    name, 
+    email,
+    password,
+    type
+  }
+}
+
+query totalUsers {
+  totalUsers
+}
+
+
+query signIn {
+  signIn(email: "tpt2213@gmail.com", password: "234234@4yY") {
+    id,
+    name,
+    email,
+    password,
+    type
+  }
+}
+
+mutation createUser {
+  createUser(name: "tpt2213", email: "tpt2213@gmail.com", password: "234234@4yY",type: 1) {
+    id,
+    name,
+    email,
+    password,
+    type
+  }
+}
+
+mutation createUser {
+  createUser(name: "DR. Trump", email: "trumpPsy@gmail.com", password: "234234@4yY",type: 2) {
+    id,
+    name,
+    email,
+    password,
+    type
+  }
+}
+
+
+mutation  {
+  updateUser(id:"7b8cf478-c494-4fde-bacd-8e9d83814857", name: "Andew.Tran", email: "tpt2213@gmail.com", password: "234234@4yY",type: 1) {
+    id,
+    name,
+    email,
+    password,
+    type
+  }
+}
+
+
+
+######## SLOT
+mutation createSlot {
+  createSlot(input: {
+    day_of_week: "monday, friday",
+    start_time: "07:00 AM",
+    end_time: "11:00 AM",
+  	from_date: "10-01-2023",
+    end_date: "10-12-2023",
+    user_id: "403d524c-6b5c-4b42-aed1-edca58c72007",
+    time_zone: 7,
+    step: 450000,
+    status:true
+  }) {
+    id,
+    day_of_week,
+    start_time,
+    end_time,
+    from_date,
+    end_date,
+    user_id,
+    time_zone,
+    step,
+    status
+  }
+}
+
+
+mutation updateSlot {
+  updateSlot(id: "9ee0a94b-6d13-4a7a-ac06-485952f0ab75",
+  input: {
+   	day_of_week: "Friday",
+    start_time: "10:00 AM",
+    end_time: "11:00 AM",
+  	from_date: "11-01-2023",
+    end_date: "11-20-2023",
+    user_id: "99cf9219-e173-4aae-a4bd-e0a4b091b94d",
+    time_zone: -8,
+    step: 450000,
+    status:true
+  }
+) {
+    id,
+    day_of_week,
+    start_time,
+    end_time,
+    from_date,
+    end_date,
+    user_id,
+    time_zone,
+    step,
+    status
+  }
+}
+
+query getSlotByUserIdAndCurrentDate {
+  getSlotByUserIdAndCurrentDate(userId: "99cf9219-e173-4aae-a4bd-e0a4b091b94d", currentDate: "10-06-2023") {
+    id,
+    day_of_week,
+    start_time,
+    end_time,
+    from_date,
+    end_date,
+    user_id,
+    time_zone,
+    step,
+    status
+  }
+}
+
+mutation createBooking {
+  createBooking(input: {
+    day_of_week: "sunday",
+    start_time: "02:30 PM",
+    end_time: "3:00 PM",
+  	date: "09-10-2023",
+    user_id: "42e889e2-2621-4f5a-be86-eb856f3ea0c4",
+    slot_id: "4f664447-9ddd-44e9-8b03-897cbcfcb9c7",
+     is_active: true,
+time_zone:7
+  },
+) {
+    id,
+    day_of_week,
+    start_time,
+    end_time,
+    date,
+    slot_id,
+    user_id,
+    time_zone,
+    is_active,
+    status
+  }
+}
+
+
+query {
+  getBookingByUserIdAndCurrentDate(
+    userId: "42e889e2-2621-4f5a-be86-eb856f3ea0c4",
+    currentDate: "09-16-2023"
+  ) {
+  id,
+    day_of_week,
+    start_time,
+    end_time,
+    date,
+    slot_id,
+    user_id,
+    time_zone,
+    is_active,
+    status
+  }
+}
+
+
+{
+  "input": {
+    "day_of_week":  "Monday, Friday",
+    "start_time": "08:00 AM",
+    "end_time": "12:00 AM",
+    "from_date": "12/01/2023",
+    "end_date": "12/20/2023",
+    "user_id": "403d524c-6b5c-4b42-aed1-edca58c72007",
+    "time_zone": 7,
+    "step": 450000
+  }
+}
+
+
+
+# Bookings
+# ->id - UUID
+# - day_of_week
+# - start_time
+# - end_time
+# - date
+# - user_id
+# - slot_id
+# - timezone
+# - is_active
+# - status
+
+
+
+http://localhost:5656/graphiql
